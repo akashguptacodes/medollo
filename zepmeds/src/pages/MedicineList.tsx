@@ -23,7 +23,7 @@ const MedicineList: React.FC = () => {
     const fetchMedicines = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`http://localhost:5000/search?q=${searchQuery}`);
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/search?q=${searchQuery}`);
         const data = await res.json();
         setMedicines(data);
       } catch (err) {

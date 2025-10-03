@@ -23,7 +23,7 @@ const MedicineDetailPage: React.FC = () => {
   useEffect(() => {
     const fetchMedicine = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/medicines/${id}`);
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/medicines/${id}`);
         const data = await res.json();
         setMedicine(data);
       } catch (err) {
@@ -67,13 +67,6 @@ const MedicineDetailPage: React.FC = () => {
           <p><strong>Preservative:</strong> {medicine.preservative ?? 'N/A'}</p>
           <p><strong>Retailer:</strong> {medicine.retailer ?? 'N/A'}</p>
           <p className="mt-4"><strong>Description:</strong> {medicine.description ?? 'N/A'}</p>
-
-          <Link
-            to="/cart"
-            className="inline-block mt-6 px-6 py-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition"
-          >
-            Add to Cart
-          </Link>
         </div>
       </div>
     </div>

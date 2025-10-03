@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
       return;
     }
     try {
-      const res = await fetch(`http://localhost:5000/search?q=${value}`);
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/search?q=${value}`);
       const data = await res.json();
       setResults(data);
     } catch (err) {
@@ -62,7 +62,7 @@ const Navbar: React.FC = () => {
                     onClick={() => {
                       setQuery(med.name);
                       setResults([]);
-                      navigate(`/medicines?search=${encodeURIComponent(med.name)}`);
+                      navigate(`/fmedicines?search=${encodeURIComponent(med.name)}`);
                     }}
 
                   >
